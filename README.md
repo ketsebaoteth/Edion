@@ -1,30 +1,50 @@
 # Edion Editor
-Imagine Without A Subscription
 
-This template should help get you started developing with Vue 3 in Vite.
+**Edion Editor** aims to be a superior alternative to Photoshop, offering a web-based solution for all your photo editing needs. Built with modern technologies like **Vue.js**, **WebGL**, and **WebAssembly**, Edion Editor provides a seamless and powerful editing experience.
 
-## Recommended IDE Setup
+## Slogan
+**Imagine without a subscription**
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Features
+- **Web-Based**: Access Edion Editor from any device with a web browser.
+- **Advanced Editing Tools**: Comparable to industry standards like Photoshop and Photopea.
+- **User-Friendly Interface**: Designed to improve usability and streamline your workflow.
 
-## Customize configuration
+## Getting Started
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+To get Edion Editor up and running, follow these steps:
 
-## Project Setup
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/ketsebaoteth/Edion
+    cd Edion
+    ```
 
-```sh
-npm install
-```
+2. Install the dependencies:
+    ```bash
+    npm install
+    ```
 
-### Compile and Hot-Reload for Development
+3. Start the development server:
+    ```bash
+    npm run dev
+    ```
 
-```sh
-npm run dev
-```
+If you encounter any missing libraries, simply run:
+    ```bash
+    npm install
+    ```
 
-### Compile and Minify for Production
+## Contributing
 
-```sh
-npm run build
-```
+We welcome contributions! Please read our contributing guidelines for more details.
+
+## License
+
+This project is licensed under the GPL 2.0 License - see the LICENSE file for details.
+
+---
+
+**Note:** Edion Editor is currently in its early development stages and is a work in progress. We appreciate your patience and contributions as we continue to improve the project.
+
+Thank you for choosing Edion Editor. We hope it enhances your photo editing experience!
