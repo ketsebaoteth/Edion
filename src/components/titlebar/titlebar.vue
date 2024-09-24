@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import { menu_tree } from "../../main/titlebar";
+import { state } from "../state/state";
 import {
   Menubar,
   MenubarContent,
@@ -13,6 +14,7 @@ import {
   MenubarSubTrigger,
   MenubarSubContent,
 } from '@/components/ui/menubar'
+import ScrollArea from "../ui/scroll-area/ScrollArea.vue";
 
 const activemenu = ref("");
 
@@ -48,6 +50,27 @@ onMounted(() => {
 onBeforeUnmount(() => {
   document.removeEventListener("click", handleClickOutside);
 });
+
+function go_fullscreen() {
+  state.windowIsFullscreen = true;
+  if (window && window.process && window.process.type === "renderer") {
+    require("electron").remote.getCurrentWindow().setFullScreen(true);
+  } else {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      document.documentElement.requestFullscreen();
+    }
+  }
+}
+function exit_fullscreen(){
+  state.windowIsFullscreen = false;
+  if (window && window.process && window.process.type === "renderer") {
+    require("electron").remote.getCurrentWindow().setFullScreen(false);
+  } else {
+    document.exitFullscreen();
+  }
+}
 </script>
 
 <template>
@@ -62,6 +85,7 @@ onBeforeUnmount(() => {
       <MenubarMenu>
         <MenubarTrigger class="cursor-pointer">{{menu.label}}</MenubarTrigger>
         <MenubarContent>
+          
           <div class="menufather"  v-for="(menuitem,menuitemindex) in menu.submenus" :key="menuitemindex">
             <MenubarItem v-if="!menuitem.subsubmenus">
               {{menuitem.label}}
@@ -74,6 +98,7 @@ onBeforeUnmount(() => {
               <MenubarSubContent>
                 <div class="subfather" v-for="(submenus, submenuindex) in menuitem.subsubmenus" :key="submenuindex">
                   <MenubarItem >
+                    <Img v-if="submenus.icon" :src="submenus.icon" class="w-5 h-5 mr-2"></Img>
                     {{submenus.label}}
                   <MenubarShortcut v-if="submenus.shortcut">⌘{{submenus.shortcut}}</MenubarShortcut>
                   </MenubarItem>
@@ -86,6 +111,12 @@ onBeforeUnmount(() => {
         </MenubarContent>
       </MenubarMenu>
     </Menubar>
+    <button v-if="!state.windowIsFullscreen" class="ml-auto" @click="go_fullscreen">
+      <img src="../icons/titlebar/go_fullscreen.svg" alt="">
+    </button>
+    <button v-if="state.windowIsFullscreen">
+      <img src="../icons/titlebar/exit_fullscreen.svg" alt="" @click="exit_fullscreen">
+    </button>
   </div>
 </template>
 
@@ -99,8 +130,9 @@ onBeforeUnmount(() => {
   gap: 0px !important;
   .menus{
     @apply h-8 border-none;
+    font-size: $text-base;
   }
-  @apply flex place-items-center px-5 gap-4;
+  @apply flex place-items-center px-2 gap-4;
   h1 {
     color: $text-base;
     font-size: $titlebar-font-size;

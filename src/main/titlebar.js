@@ -85,7 +85,30 @@ export const menu_tree = [
                     {
                         label: "JPG",
                         labelCallback: exampleItemCallback,
-
+                    },
+                    {
+                        label: "WEBP",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "PDF",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "SVG",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "GIF",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "MP4",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Explore More",
+                        labelCallback: exampleItemCallback,
                     }
                 ]
             },
@@ -175,7 +198,7 @@ export const menu_tree = [
                 labelCallback: exampleItemCallback,
             },
             {
-                label: "Free Transform",
+                label: "Transform",
                 labelCallback: exampleItemCallback
             },
             {
@@ -185,19 +208,23 @@ export const menu_tree = [
                     {
                         label: "Repeat",
                         labelCallback: exampleItemCallback,
-                        bottomSeparator: true
+                        bottomSeparator: true,
+                        icon: "../../src/components/icons/titlebar/repeat.svg"
                     },
                     {
                         label: "Scale",
                         labelCallback: exampleItemCallback,
+                        icon: "../../src/components/icons/titlebar/scale.svg"
                     },
                     {
                         label: "Rotate",
                         labelCallback: exampleItemCallback,
+                        icon: "../../src/components/icons/titlebar/rotate_tool.svg"
                     },
                     {
                         label: "Skew",
                         labelCallback: exampleItemCallback,
+                        icon: "../../src/components/icons/titlebar/skew.svg"
                     },
                     {
                         label: "Distort",
@@ -206,7 +233,17 @@ export const menu_tree = [
                     {
                         label: "Perspective",
                         labelCallback: exampleItemCallback,
+                        bottomSeparator: true,
+                        icon: "../../src/components/icons/titlebar/perspective.svg"
                     },
+                    {
+                        label: "Roatate 90 Left",
+                        icon: "../../src/components/icons/titlebar/rotate_left.svg",
+                    },
+                    {
+                        label: "Rotate 90 Right",
+                        icon: "../../src/components/icons/titlebar/rotate_right.svg",
+                    }
                 ],
                 bottomSeparator: true
             },
@@ -417,6 +454,9 @@ export const menu_tree = [
                 labelCallback: exampleItemCallback,
             },
             {
+                label: "Flatten Layer to Image"
+            },
+            {
                 label: "variables",
                 labelCallback: exampleItemCallback,
             }
@@ -615,38 +655,112 @@ export const menu_tree = [
                         label:"Disable/Enable"
                     }
                 ]
-            }
-        ]
-    },
-    {
-        label: "Document",
-        labelCallback: exampleLabelCallback,
-        submenus: [
-            {
-                label: "Resize Document",
-                labelCallback: exampleItemCallback,
             },
             {
-                label: "Canvas Size",
+                label: "Vector Mask",
                 labelCallback: exampleItemCallback,
+                subsubmenus: [
+                    {
+                        label: "Add (Reveal All)"
+                    },
+                    {
+                        label: "Add (Hide All)"
+                    },
+                    {
+                        label: "Current Path",
+                        bottomSeparator: true,
+                    },
+                    {
+                        label: "Delete"
+                    },
+                    {
+                        label: "Enable/Disable"
+                    }
+                ]
             },
             {
-                label: "Image Size",
+                label: "Cliping Mask",
                 labelCallback: exampleItemCallback,
+                shortcut: "ALT+CTRL+G",
+                bottomSeparator: true,
             },
             {
-                label: "Size To Selection",
+                label: "Smart Object",
                 labelCallback: exampleItemCallback,
+                bottomSeparator: true,
+                subsubmenus:[
+                    {
+                        label: "Conver To SmartObject",
+                        bottomSeparator: true,
+                    },
+                    {
+                        label: "Open To Edit",
+                    },
+                    {
+                        label: "Replace Content"
+                    },
+                    {
+                        label: "Export Content",
+                        bottomSeparator: true
+                    },
+                    {
+                        label: "Convert To Layer",
+                        bottomSeparator: true
+                    },
+                    {
+                        label: "Stack Mode"
+                    },
+                    {
+                        label: "Conver To JPG"
+                    }
+                ]
+            },
+            {
+                label: "Rasterize"
+            },
+            {
+                label: "Rasterize Layer Style",
                 bottomSeparator: true
             },
             {
-                label: "Export Snap",
-                labelCallback: exampleItemCallback,
-                shortcut: "CTRL+ALT+E"
+                label: "Group Layers",
+                bottomSeparator: true
+            },
+            {
+                label: "Shape Combine",
+                subsubmenus: [
+                    {
+                        label: "Unite",
+                        icon: "../../src/components/icons/titlebar/union.svg"
+                    },
+                    {
+                        label: "Subtract",
+                        icon: "../../src/components/icons/titlebar/layer_subtract.svg"
+
+                    },
+                    {
+                        label: "Intersect",
+                        icon: "../../src/components/icons/titlebar/layer_intersect.svg"
+
+                    },
+                    {
+                        label: "Exclude",
+                        icon: "../../src/components/icons/titlebar/layer_exclude.svg"
+
+                    }
+                ],
+                bottomSeparator: true
+            },
+            {
+                label: "Merge Down"
             },
             
+            {
+                label: "Defring"
+            }
         ]
     },
+    
     {
         label: "Selection",
         labelCallback: exampleLabelCallback,
@@ -674,20 +788,14 @@ export const menu_tree = [
         ]
     },
     {
-        label: "Preferences",
+        label: "Filter",
         labelCallback: exampleLabelCallback,
-        submenus: [
-            {
-                label: "Themes",
-                labelCallback: exampleItemCallback,
-            },
-            {
-                label: "Settings",
-                labelCallback: exampleItemCallback,
-                shortcut: "CTRL+ALT+S"
-            }
-        ]
     },
+    {
+        label: "View",
+        labelCallback: exampleLabelCallback,
+    },
+    
     {
         label: "Window",
         labelCallback: exampleLabelCallback,
