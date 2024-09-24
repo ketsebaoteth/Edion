@@ -3,7 +3,7 @@ import { tabList } from './tabsjs/tab_list';
 </script>
 
 <template>
-    <div class="tab_list w-full h-8">
+    <div class="tab_list w-full h-8 min-h-8">
         <div class="tab active" v-for="(tabs, tabindex) in tabList" :key="tabindex">
             <h2>{{ tabs.FileName}}</h2>
             <button>
