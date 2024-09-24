@@ -1,13 +1,30 @@
 <script setup>
 import { toolList } from "./tool_js/tool_list";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from '@/components/ui/tooltip'
 </script>
 
 <template>
   <div class="toolbar">
-    <div class="tools" v-for="(tool, tindex) in toolList" :key="tindex" :class="{'pl-2':tool.hassub}">
-      <img :src="tool.icon" alt="" />
-      <img src="../icons/toolbar/sub_element_inducator.svg" alt="" class="inducator"  v-if="tool.hassub">
-    </div>
+    <TooltipProvider v-for="(tool, tindex) in toolList" :key="tindex" :text="tool.tooltip">
+      <Tooltip>
+        <TooltipTrigger>
+          <div class="tools" :class="{'pl-2':tool.hassub}">
+            <img :src="tool.icon" alt="" />
+          <img src="../icons/toolbar/sub_element_inducator.svg" alt="" class="inducator"  v-if="tool.hassub">
+        </div>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>{{tool.tooltip}}</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+    
+
   </div>
 </template>
 
@@ -23,7 +40,7 @@ import { toolList } from "./tool_js/tool_list";
             @apply w-5 h-4;
         }
         .inducator{
-            @apply w-[14px] h-4 self-end;
+            @apply w-[12px] h-4 self-end;
         }
         &:hover{
             background: $background-base-hover;
