@@ -65,10 +65,34 @@ export const menu_tree = [
                 shortcut: "CTRL+SHIFT+N"
             },
             {
-                label: "Export",
+                label: "Save As PSD",
+                labelCallback: exampleItemCallback,
+            },
+            {
+                label: "Export Quick",
+                labelCallback: exampleItemCallback,
+                shortcut: "CTRL+E"
+            },
+            {
+                label: "Export As",
                 labelCallback: exampleItemCallback,
                 bottomSeparator: true,
-                shortcut: "CTRL+E"
+                subsubmenus: [
+                    {
+                        label: "Png",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "JPG",
+                        labelCallback: exampleItemCallback,
+
+                    }
+                ]
+            },
+            {
+                label: "Print",
+                labelCallback: exampleItemCallback,
+                shortcut: "CTRL+P"
             },
             {
                 label: "Close",
@@ -93,6 +117,17 @@ export const menu_tree = [
                 bottomSeparator: true,
             },
             {
+                label: "Bring To Front",
+                labelCallback: exampleItemCallback,
+                shortcut: "]"
+            },
+            {
+                label: "Send To Back",
+                labelCallback: exampleItemCallback,
+                shortcut: "[",
+                bottomSeparator: true,
+            },
+            {
                 label: "Cut",
                 labelCallback: exampleItemCallback,
                 shortcut: "CTRL+X"
@@ -108,16 +143,479 @@ export const menu_tree = [
                 shortcut: "CTRL+V"
             },
             {
-                label: "Paste On New Layer",
+                label: "Paste New Layer",
                 labelCallback: exampleItemCallback,
-                shortcut: "CTRL+ALT+Z",
-                bottomSeparator: true
+                shortcut: "CTRL+ALT+v",
+            },
+            {
+                label: "clear",
+                labelCallback: exampleItemCallback,
             },
             {
                 label: "Clear Canvas",
                 labelCallback: exampleItemCallback,
-                shortcut: "CTRL+ALT+X"
+                shortcut: "CTRL+ALT+X",
+                bottomSeparator: true
             },
+            {
+                label: "Fill",
+                labelCallback: exampleItemCallback,
+            },
+            {
+                label: "Stroke",
+                labelCallback: exampleItemCallback,
+                bottomSeparator: true
+            },
+            {
+                label: "Content Aware Scale",
+                labelCallback: exampleItemCallback,
+            },
+            {
+                label:"Puppet Wrap",
+                labelCallback: exampleItemCallback,
+            },
+            {
+                label: "Free Transform",
+                labelCallback: exampleItemCallback
+            },
+            {
+                label: "Free Transform",
+                labelCallback: exampleItemCallback,
+                subsubmenus: [
+                    {
+                        label: "Repeat",
+                        labelCallback: exampleItemCallback,
+                        bottomSeparator: true
+                    },
+                    {
+                        label: "Scale",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Rotate",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Skew",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Distort",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Perspective",
+                        labelCallback: exampleItemCallback,
+                    },
+                ],
+                bottomSeparator: true
+            },
+            {
+                label: "wrap",
+                labelCallback: exampleItemCallback,
+            }
+        ]
+    },
+    {
+        label: "Images",
+        labelCallback: exampleLabelCallback,
+        submenus: [
+            {
+                label: "Mode",
+                labelCallback: exampleItemCallback,
+                subsubmenus: [
+                    {
+                        label: "RGB",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "CMYK",
+                        labelCallback: exampleItemCallback,
+                        bottomSeparator: true
+                    },
+                    {
+                        label: "8 bit channel",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "16 bit channel",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "32 bit channel",
+                        labelCallback: exampleItemCallback,
+                    }
+                ]
+            },
+            {
+                label: "Adjustments",
+                labelCallback: exampleItemCallback,
+                bottomSeparator: true,
+                subsubmenus: [
+                    {
+                        label: "Brightness/Contrast",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Levels",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Curves",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Exposure",
+                        labelCallback: exampleItemCallback,
+                        bottomSeparator: true
+                    },
+                    {
+                        label: "Vibrance",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Hue/Saturation",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Color Balance",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Black & White",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Photo Filter",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Channel Mixer",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Color Lookup",
+                        labelCallback: exampleItemCallback,
+                        bottomSeparator: true,
+                    },
+                    {
+                        label: "Invert",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Posterize",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Threshold",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Gradient Map",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Selective Color",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Shadow/Highlight",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Match Color",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "HDR Toning",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Equalize",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Replace Color",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Adjustments",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Desaturate",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Invert",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Threshold",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Posterize",
+                        labelCallback: exampleItemCallback,
+                    }
+                ]
+            },
+            {
+                label: "Auto Tone",
+                labelCallback: exampleItemCallback,
+            },
+            {
+                label: "Auto Contrast",
+                labelCallback: exampleItemCallback,
+            },
+            {
+                label: "Auto Color",
+                labelCallback: exampleItemCallback,
+                bottomSeparator: true
+            },
+            {
+                label: "Reduce Color",
+                labelCallback: exampleItemCallback,
+            },
+            {
+                label: "Vectorize Bitmap",
+                labelCallback: exampleItemCallback,
+            },
+            {
+                label: "Wavelet decompose",
+                labelCallback: exampleItemCallback,
+                bottomSeparator: true
+            },
+            {
+                label: "Canvas Size",
+                labelCallback: exampleItemCallback,
+                shortcut: "CTRL+ALT+C"
+
+            },
+            {
+                label: "Image Size",
+                labelCallback: exampleItemCallback,
+                shortcut: "CTRL+ALT+I"
+            },
+            {
+                label: "Crop",
+                labelCallback: exampleItemCallback,
+
+            },
+            {
+                label: "Trim",
+                labelCallback: exampleItemCallback,
+                shortcut: "CTRL+."
+            },
+            {
+                label: "Reveal All",
+                labelCallback: exampleItemCallback,
+                bottomSeparator: true
+            },
+            {
+                label: "Apply Image",
+                labelCallback: exampleItemCallback,
+            },
+            {
+                label: "variables",
+                labelCallback: exampleItemCallback,
+            }
+        ]
+    },
+    
+    {
+        label: "Layer",
+        labelCallback: exampleLabelCallback,
+        submenus: [
+            {
+                label: "New",
+                labelCallback: exampleItemCallback,
+                subsubmenus: [
+                    {
+                        label: "New Layer",
+                        shortcut: "CTRL+SHIFT+N",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "New Folder",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Artboard",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Artboard From Layer",
+                        labelCallback: exampleItemCallback,
+                        bottomSeparator: true,
+                    },
+                    {
+                        label: "Layer Via Copy",
+                        labelCallback: exampleItemCallback,
+                    },
+                ]
+            },
+            {
+                label: "Duplicate",
+                labelCallback: exampleItemCallback,
+            },
+            {
+                label: "Delete",
+                labelCallback: exampleItemCallback,
+                bottomSeparator: true
+            },
+            {
+                label: "Text",
+                labelCallback: exampleItemCallback,
+                subsubmenus: [
+                    {
+                        label: "Conver To Shape",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Create Font",
+                        labelCallback: exampleItemCallback,
+                    }
+                ]
+            },
+            {
+                label: "Layer Style",
+                labelCallback: exampleItemCallback,
+                subsubmenus: [
+                    {
+                        label: "Blending Options",
+                        labelCallback: exampleItemCallback,
+                        bottomSeparator: true,
+                    },
+                    {
+                        label: "Advanced Effects",
+                        labelCallback: exampleItemCallback,
+                        bottomSeparator: true
+                    },
+                    {
+                        label: "Copy Layer Style",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Paste Layer Style",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Clear Layer Style",
+                        labelCallback: exampleItemCallback,
+                        bottomSeparator: true,
+                    },
+                    {
+                        label: "Scale Effect",
+                        labelCallback: exampleItemCallback,
+                    }
+                ],
+                bottomSeparator: true,
+            },
+            {
+                label: "New Fill Layer",
+                labelCallback: exampleItemCallback,
+                subsubmenus: [
+                    {
+                        label: "Solid Color"
+                    },
+                    {
+                        label: "Gradient Color"
+                    },
+                    {
+                        label: "Pattern Color"
+                    }
+                ]
+            },
+            {
+                label: "New Adjustment Layer",
+                labelCallback: exampleItemCallback,
+                subsubmenus: [
+                    {
+                        label: "Brightness/Contrast"
+                      },
+                      {
+                        label: "Levels"
+                      },
+                      {
+                        label: "Curves"
+                      },
+                      {
+                        label: "Exposure"
+                      },
+                      {
+                        label: "Vibrance"
+                      },
+                      {
+                        label: "Hue/Saturation"
+                      },
+                      {
+                        label: "Color Balance"
+                      },
+                      {
+                        label: "Black & White"
+                      },
+                      {
+                        label: "Photo Filter"
+                      },
+                      {
+                        label: "Channel Mixer"
+                      },
+                      {
+                        label: "Color Lookup"
+                      },
+                      {
+                        label: "Invert"
+                      },
+                      {
+                        label: "Posterize"
+                      },
+                      {
+                        label: "Threshold"
+                      },
+                      {
+                        label: "Gradient Map"
+                      },
+                      {
+                        label: "Selective Color"
+                      },
+                      {
+                        label: "Replace Color"
+                      }
+                ],
+                bottomSeparator: true,
+            },
+            {
+                label: "Raster Mask",
+                labelCallback: exampleItemCallback,
+                subsubmenus: [
+                    {
+                        label: "Add (Add Reveal All)"
+                    },
+                    {
+                        label: "Add (Hide All)"
+                    },
+                    {
+                        label: "Reveal Selection"
+                    },
+                    {
+                        label: "Hide Selection"
+                    },
+                    {
+                        label: "From Selection",
+                        bottomSeparator: true,
+                    },
+                    {
+                        label: "Delete"
+                    },
+                    {
+                        label: "Apply"
+                    },
+                    {
+                        label:"Disable/Enable"
+                    }
+                ]
+            }
         ]
     },
     {
@@ -147,41 +645,6 @@ export const menu_tree = [
                 shortcut: "CTRL+ALT+E"
             },
             
-        ]
-    },
-    {
-        label: "Layer",
-        labelCallback: exampleLabelCallback,
-        submenus: [
-            {
-                label: "New Layer",
-                labelCallback: exampleItemCallback,
-                shortcut: "CTRL+L"
-            },
-            {
-                label: "Delete Layer",
-                labelCallback: exampleItemCallback,
-                bottomSeparator: true,
-            },
-            {
-                label: "Bring To Front",
-                labelCallback: exampleItemCallback,
-                shortcut: "]"
-            },
-            {
-                label: "Send To Back",
-                labelCallback: exampleItemCallback,
-                shortcut: "[",
-                bottomSeparator: true,
-            },
-            {
-                label: "Filter",
-                labelCallback: exampleItemCallback,
-            },
-            {
-                label: "Clear Filters",
-                labelCallback: exampleItemCallback,
-            },
         ]
     },
     {

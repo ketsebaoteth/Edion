@@ -1,7 +1,6 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import { menu_tree } from "../../main/titlebar";
-import subMenuListVue from "./subMenuList.vue";
 import {
   Menubar,
   MenubarContent,
@@ -66,15 +65,20 @@ onBeforeUnmount(() => {
           <div class="menufather"  v-for="(menuitem,menuitemindex) in menu.submenus" :key="menuitemindex">
             <MenubarItem v-if="!menuitem.subsubmenus">
               {{menuitem.label}}
+              <MenubarShortcut v-if="menuitem.shortcut">⌘{{menuitem.shortcut}}</MenubarShortcut>
             </MenubarItem>
             <MenubarSub v-if="menuitem.subsubmenus">
               <MenubarSubTrigger>
                 {{menuitem.label}}
               </MenubarSubTrigger>
               <MenubarSubContent>
-                <MenubarItem v-for="(submenus, submenuindex) in menuitem.subsubmenus" :key="submenuindex">
-                  {{submenus.label}}
-                </MenubarItem>
+                <div class="subfather" v-for="(submenus, submenuindex) in menuitem.subsubmenus" :key="submenuindex">
+                  <MenubarItem >
+                    {{submenus.label}}
+                  <MenubarShortcut v-if="submenus.shortcut">⌘{{submenus.shortcut}}</MenubarShortcut>
+                  </MenubarItem>
+                  <MenubarSeparator v-if="submenus.bottomSeparator"></MenubarSeparator>
+                </div>
               </MenubarSubContent>
             </MenubarSub>
             <MenubarSeparator v-if="menuitem.bottomSeparator"></MenubarSeparator>
@@ -92,7 +96,7 @@ onBeforeUnmount(() => {
 .titlebar {
   background-color: $background-base;
   border-bottom: 1px solid $border-base;
-  gap: 3px !important;
+  gap: 0px !important;
   .menus{
     @apply h-8 border-none;
   }
