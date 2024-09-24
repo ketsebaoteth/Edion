@@ -2,6 +2,9 @@
 import { onMounted, ref } from "vue";
 import { hexToHSL } from "./utils/hextohsl";
 import { hexToRgb } from "./utils/hextorgb";
+import { defineEmits } from "vue";
+
+const emit = defineEmits(["colorChange"]);
 
 const props = defineProps({
   color: {
@@ -58,7 +61,19 @@ function init() {
 function getColorAt(x, y) {
   const canvas = canvasref.value;
   const ctx = canvas.getContext("2d");
-  const pixel = ctx.getImageData(x, y, 1, 1).data;
+
+  // Ensure x and y are within the canvas boundaries
+  x = Math.max(0, Math.min(x, canvas.width - 1));
+  y = Math.max(0, Math.min(y, canvas.height - 1));
+
+  let pixel;
+  if (x < 10 || y < 10) {
+    pixel = ctx.getImageData(x, y , 1, 1).data;
+  } else {
+    pixel = ctx.getImageData(x, y, 1, 1).data;
+  }
+  emit("colorChange", `rgb(${pixel[0]}, ${pixel[1]}, ${pixel[2]})`);
+
   return `rgb(${pixel[0]}, ${pixel[1]}, ${pixel[2]})`;
 }
 
@@ -71,6 +86,8 @@ function gradientClick(event) {
   ind.value.style.left = Math.max(0, Math.min(offsetX, rect.width)) + rect.x + "px";
   ind.value.style.backgroundColor = getColorAt(offsetX, offsetY);
 }
+
+
 
 function gradientMove(event) {
   const rect = canvasref.value.getBoundingClientRect();
@@ -88,11 +105,15 @@ function gradientMove(event) {
 function gradientUp() {
   document.removeEventListener("mousemove", gradientMove);
   document.removeEventListener("mouseup", gradientUp);
+  document.body.classList.remove("no-select");
 }
 
 function gradient_Click_drag() {
+  event.stopPropagation()
+  event.preventDefault()
   document.addEventListener("mousemove", gradientMove);
   document.addEventListener("mouseup", gradientUp);
+  document.body.classList.add("no-select");
 }
 
 // Use the onMounted lifecycle hook to initialize the canvas
@@ -106,7 +127,7 @@ onMounted(() => {
     ref="canvasParent"
     class="canvasParent w-full h-44 bg-transparent my-3 rounded"
   >
-    <div class="ind" ref="ind"></div>
+    <div class="ind" ref="ind" @click="gradientClick" @mousedown="gradient_Click_drag"></div>
     <canvas
       ref="canvasref"
       class="rounded"
@@ -124,8 +145,9 @@ onMounted(() => {
   .ind {
     @apply w-3 h-3 bg-white rounded-full absolute translate-x-[-50%]
       translate-y-[-50%];
-    box-shadow: 0 0 0 1px white, /* Middle border */
-      0 0 0 2px black;
+    box-shadow: 0 0 0 2px white, /* Middle border */
+      0 0 0 3px black;
   }
 }
+
 </style>
