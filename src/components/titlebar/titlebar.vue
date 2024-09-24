@@ -2,6 +2,18 @@
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import { menu_tree } from "../../main/titlebar";
 import subMenuListVue from "./subMenuList.vue";
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+  MenubarSub,
+  MenubarSubTrigger,
+  MenubarSubContent,
+} from '@/components/ui/menubar'
 
 const activemenu = ref("");
 
@@ -41,12 +53,35 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="titlebar w-screen h-10">
-    <div v-for="(menu, menu_i) in menu_tree" :key="menu_i" @click="menuClicked(menu, $event)" @blur="resetActiveMenu">
+    <!-- <div v-for="(menu, menu_i) in menu_tree" :key="menu_i" @click="menuClicked(menu, $event)" @blur="resetActiveMenu">
       <h1>{{ menu.label }}</h1>
       <div class="submenu" v-if="menu.label == activemenu">
         <subMenuListVue :submenulist="menu.submenus" />
       </div>
-    </div>
+    </div> -->
+    <Menubar v-for="(menu,menuindex) in menu_tree" :key="menuindex" class="menus">
+      <MenubarMenu>
+        <MenubarTrigger class="cursor-pointer">{{menu.label}}</MenubarTrigger>
+        <MenubarContent>
+          <div class="menufather"  v-for="(menuitem,menuitemindex) in menu.submenus" :key="menuitemindex">
+            <MenubarItem v-if="!menuitem.subsubmenus">
+              {{menuitem.label}}
+            </MenubarItem>
+            <MenubarSub v-if="menuitem.subsubmenus">
+              <MenubarSubTrigger>
+                {{menuitem.label}}
+              </MenubarSubTrigger>
+              <MenubarSubContent>
+                <MenubarItem v-for="(submenus, submenuindex) in menuitem.subsubmenus" :key="submenuindex">
+                  {{submenus.label}}
+                </MenubarItem>
+              </MenubarSubContent>
+            </MenubarSub>
+            <MenubarSeparator v-if="menuitem.bottomSeparator"></MenubarSeparator>
+          </div>
+        </MenubarContent>
+      </MenubarMenu>
+    </Menubar>
   </div>
 </template>
 
@@ -57,6 +92,10 @@ onBeforeUnmount(() => {
 .titlebar {
   background-color: $background-base;
   border-bottom: 1px solid $border-base;
+  gap: 3px !important;
+  .menus{
+    @apply h-8 border-none;
+  }
   @apply flex place-items-center px-5 gap-4;
   h1 {
     color: $text-base;
@@ -68,9 +107,5 @@ onBeforeUnmount(() => {
       color: $text-base-hover;
     }
   }
-}
-
-.submenu {
-  // Add styles for submenu if needed
 }
 </style>

@@ -15,7 +15,8 @@ export const menu_tree = [
                 label: "New",
                 labelCallback: exampleItemCallback,
                 bottomSeparator: true,
-                shortcut: "CTRL+N"
+                shortcut: "CTRL+N",
+                
             },
             {
                 label: "Open",
@@ -29,7 +30,29 @@ export const menu_tree = [
             {
                 label: "Open from drive",
                 labelCallback: exampleItemCallback,
+            },
+            {
+                label: "Open from Other source",
+                labelCallback: exampleItemCallback,
                 bottomSeparator: true,
+                subsubmenus: [
+                    {
+                        label: "Online Sources",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Local Sources",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Image Url",
+                        labelCallback: exampleItemCallback,
+                    },
+                    {
+                        label: "Templates",
+                        labelCallback: exampleItemCallback,
+                    }
+                ]
             },
             {
                 label: "Save",
