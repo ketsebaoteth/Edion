@@ -22,6 +22,7 @@ import {
 
 import ScrollArea from '../ui/scroll-area/ScrollArea.vue';
 import { ref } from 'vue';
+import color_property_section from './sections/color_property_section.vue';
 
 const SelectedColor = ref("rgb(255, 255, 255)");
 const layersExpanded = ref(false);
@@ -39,9 +40,14 @@ function expandlayers(){
         <div class="header h-8 flex place-items-center px-4">
             <h2 >Properties</h2>
         </div>
-        
-        
-        
+        <div class="tabs w-full h-8 border-b border-border flex px-4 gap-3 place-items-center">
+            <h2 class="active">Color</h2>
+            <h2>Editing</h2>
+        </div>
+        <color_property_section>
+            <gradient_area />
+        </color_property_section>
+
         <div class="layers">
             <div class="layer_head px-4 pr-0" @click="expandlayers">
                 <h2>Layers</h2>
@@ -69,6 +75,16 @@ function expandlayers(){
             font-size: $fsize-large;
         }
     }
+    .tabs{
+        font-size: $fsize-base;
+        .active{
+            color: $text-base;
+        }
+        h2{
+            cursor: pointer;
+            color: $text-darker;
+        }
+    }
     .sections{
         @apply flex mt-2;
         h2{
@@ -79,6 +95,7 @@ function expandlayers(){
         }
         .active{
             color: $text-base;
+            font-size: $fsize-large;
         }
     }
     .layers{

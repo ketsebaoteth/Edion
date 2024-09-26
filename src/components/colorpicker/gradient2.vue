@@ -5,9 +5,12 @@ import { clamp } from './utils/clamp';
 
 const canvasElement = ref(null);
 const canvasContainer = ref(null);
-const selectedColor = ref("red");
 
 const props = defineProps({
+  selectedColor: {
+    type: String,
+    default: "red"
+  },
   color: {
     type: String,
     default: "#0000ff"
@@ -21,8 +24,7 @@ const props = defineProps({
 const emit = defineEmits(["update:selectedColor"]);
 
 function updateCanvasGradient() {
-  let color = hexToRgb(props.color);
-  const ctx = canvasElement.value.getContext("2d",{ willReadFrequently: true });
+  const ctx = canvasElement.value.getContext("2d");
   const width = canvasElement.value.width;
   const height = canvasElement.value.height;
 
@@ -58,7 +60,10 @@ function drawIndicator(x, y) {
   ctx.arc(x, y, indicatorRadius + 2, 0, 2 * Math.PI);
   ctx.strokeStyle = "white";
   ctx.stroke();
-  selectedColor.value = getColorAtPosition(x, y);
+
+  const selectedColor = getColorAtPosition(x, y);
+  emit("update:selectedColor", selectedColor);
+  console.log("Emitted selected color:", selectedColor);
 }
 
 function canvasMouseMove(e) {
@@ -68,7 +73,6 @@ function canvasMouseMove(e) {
   x = clamp(x, 0, canvasContainerDimensions.width);
   y = clamp(y, 0, canvasContainerDimensions.height);
   drawIndicator(x, y);
-  updateSelectedColor(e);
 }
 
 function canvasMouseUp(e) {
@@ -77,14 +81,15 @@ function canvasMouseUp(e) {
 }
 
 function getColorAtPosition(x, y) {
-  // Pass the options object with the willReadFrequently flag set to true
-  const ctx = canvasElement.value.getContext('2d', { willReadFrequently: true });
+  const ctx = canvasElement.value.getContext("2d");
   const pixel = ctx.getImageData(x, y, 1, 1).data;
   return `rgba(${pixel[0]},${pixel[1]},${pixel[2]},${pixel[3]})`;
 }
 
 function updateSelectedColor(e) {
-  selectedColor.value = getColorAtPosition(e.offsetX, e.offsetY);
+  const sc = getColorAtPosition(e.offsetX, e.offsetY);
+  emit("update:selectedColor", sc);
+  drawIndicator(e.offsetX, e.offsetY);
 }
 
 function canvasMouseDown(e) {
