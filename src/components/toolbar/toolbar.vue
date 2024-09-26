@@ -1,5 +1,5 @@
 <script setup>
-import { toolList } from "./tool_js/tool_list";
+import { toolBarStructure } from "./tool_js/tool_list";
 import {
   Tooltip,
   TooltipContent,
@@ -7,10 +7,10 @@ import {
   TooltipTrigger
 } from '@/components/ui/tooltip'
 </script>
-
+<!--this contains the tools list on the leftside it contains all the tools by reading the toolBarStructure-->
 <template>
   <div class="toolbar">
-    <TooltipProvider v-for="(tool, tindex) in toolList" :key="tindex" :text="tool.tooltip">
+    <TooltipProvider v-for="(tool, tindex) in toolBarStructure" :key="tindex" :text="tool.tooltip">
       <Tooltip>
         <TooltipTrigger>
           <div class="tools" :class="{'pl-2':tool.hassub}">

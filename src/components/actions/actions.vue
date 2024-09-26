@@ -1,6 +1,6 @@
 <script setup>
 </script>
-
+<!--this page contains actions tab above the tabs view actions that can be performed based on the selected element type-->
 <template>
     <div class="action_bar">
 

@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
-import { menu_tree } from "../../main/titlebar";
+import { menuBarStructure } from "../../main/titlebar";
 import { state } from "../state/state";
 import {
   Menubar,
@@ -16,41 +16,8 @@ import {
 } from '@/components/ui/menubar'
 import ScrollArea from "../ui/scroll-area/ScrollArea.vue";
 
-const activemenu = ref("");
 
-function resetActiveMenu() {
-  activemenu.value = "";
-}
-
-function menuClicked(menu, event) {
-  event.stopPropagation(); // Prevent event from propagating to the document
-  // Run callback if there is one
-  if (menu.labelCallback) {
-    menu.labelCallback();
-  }
-  // Set menu as active one
-  if (activemenu.value == menu.label) {
-    // If already enabled disable it
-    activemenu.value = "";
-  } else {
-    activemenu.value = menu.label;
-  }
-}
-
-function handleClickOutside(event) {
-  if (!event.target.closest(".titlebar") && !event.target.closest(".submenu")) {
-    resetActiveMenu();
-  }
-}
-
-onMounted(() => {
-  document.addEventListener("click", handleClickOutside);
-});
-
-onBeforeUnmount(() => {
-  document.removeEventListener("click", handleClickOutside);
-});
-
+//makes the window fullscreen handles electron too cause i am thinking of expanding there too in the future
 function go_fullscreen() {
   state.windowIsFullscreen = true;
   if (window && window.process && window.process.type === "renderer") {
@@ -63,6 +30,7 @@ function go_fullscreen() {
     }
   }
 }
+//exit full screen
 function exit_fullscreen(){
   state.windowIsFullscreen = false;
   if (window && window.process && window.process.type === "renderer") {
@@ -75,13 +43,7 @@ function exit_fullscreen(){
 
 <template>
   <div class="titlebar w-screen h-10">
-    <!-- <div v-for="(menu, menu_i) in menu_tree" :key="menu_i" @click="menuClicked(menu, $event)" @blur="resetActiveMenu">
-      <h1>{{ menu.label }}</h1>
-      <div class="submenu" v-if="menu.label == activemenu">
-        <subMenuListVue :submenulist="menu.submenus" />
-      </div>
-    </div> -->
-    <Menubar v-for="(menu,menuindex) in menu_tree" :key="menuindex" class="menus">
+    <Menubar v-for="(menu,menuindex) in menuBarStructure" :key="menuindex" class="menus">
       <MenubarMenu>
         <MenubarTrigger class="cursor-pointer">{{menu.label}}</MenubarTrigger>
         <MenubarContent>

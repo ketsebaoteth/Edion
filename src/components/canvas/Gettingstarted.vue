@@ -2,7 +2,8 @@
 import { state } from '../state/state';
 import Button from '../ui/button/Button.vue';
 </script>
-
+<!-- this contains the getting started page -->
+ 
 <template>
     <div class="GS " v-if="state.showGettingStarted">
       <div class="leftside flex flex-col">

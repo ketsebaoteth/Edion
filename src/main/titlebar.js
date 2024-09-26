@@ -6,7 +6,7 @@ function exampleItemCallback() {
     console.log("item pressed");
 }
 
-export const menu_tree = [
+export const menuBarStructure = [
     {
         label: "File",
         labelCallback: exampleLabelCallback,

@@ -1,4 +1,4 @@
-export const toolList = [
+export const toolBarStructure = [
     {
         icon: "src/components/icons/toolbar/move.svg",
         tooltip: "Move",
