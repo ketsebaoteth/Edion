@@ -1,5 +1,5 @@
 <script setup>
-import { toolBarStructure } from "./tool_js/tool_list";
+import { toolBarStructure } from "./tools/toolbarstructure";
 import {
   Tooltip,
   TooltipContent,

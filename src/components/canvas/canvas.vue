@@ -1,7 +1,7 @@
 <script setup>
 import tab from "./tabs/tab.vue";
 import { activeTab } from "./tabs/tabsjs/tabmanager";
-import Gettingstarted from "./Gettingstarted.vue";
+import gettingstarted from "./Gettingstarted.vue";
 </script>
 
 <template>
