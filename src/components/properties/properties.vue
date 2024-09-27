@@ -46,6 +46,8 @@ function expandlayers(){
         </div>
         <color_property_section>
             <gradient_area />
+            <fullcolorchannel />
+            <alphachannel />
         </color_property_section>
 
         <div class="layers">

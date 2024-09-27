@@ -1,11 +1,12 @@
 <script setup>
-import { ref, onMounted, defineProps, defineEmits } from 'vue';
+import { ref, onMounted, defineProps, defineEmits, watch } from 'vue';
 import { hexToRgb } from './utils/hextorgb';
 import { clamp } from './utils/clamp';
+import { selectedColor,fullChannelColor,activeColorValue } from './globals';
 
 const canvasElement = ref(null);
 const canvasContainer = ref(null);
-const selectedColor = ref("red");
+let inducatorPosition = {x:0,y:0};
 
 const props = defineProps({
   color: {
@@ -21,7 +22,6 @@ const props = defineProps({
 const emit = defineEmits(["update:selectedColor"]);
 
 function updateCanvasGradient() {
-  let color = hexToRgb(props.color);
   const ctx = canvasElement.value.getContext("2d",{ willReadFrequently: true });
   const width = canvasElement.value.width;
   const height = canvasElement.value.height;
@@ -29,7 +29,7 @@ function updateCanvasGradient() {
   // Horizontal gradient from starting color (white) to a specific color
   const horizontalGradient = ctx.createLinearGradient(0, 0, width, 0);
   horizontalGradient.addColorStop(0, props.startingPoint);
-  horizontalGradient.addColorStop(1, props.color);
+  horizontalGradient.addColorStop(1, fullChannelColor.value);
   ctx.fillStyle = horizontalGradient;
   ctx.fillRect(0, 0, width, height);
 
@@ -44,6 +44,8 @@ function updateCanvasGradient() {
 // Draws circular indicator for the selected color
 function drawIndicator(x, y) {
   const indicatorRadius = 5;
+  inducatorPosition.x = x;
+  inducatorPosition.y = y;
   const ctx = canvasElement.value.getContext("2d");
   ctx.clearRect(0, 0, canvasElement.value.width, canvasElement.value.height);
   updateCanvasGradient();
@@ -52,13 +54,16 @@ function drawIndicator(x, y) {
   ctx.fillStyle = getColorAtPosition(x, y);
   ctx.fill();
   ctx.strokeStyle = "black";
+  ctx.lineWidth = 2;
   ctx.stroke();
 
   ctx.beginPath();
   ctx.arc(x, y, indicatorRadius + 2, 0, 2 * Math.PI);
   ctx.strokeStyle = "white";
+  ctx.lineWidth = 2;
   ctx.stroke();
   selectedColor.value = getColorAtPosition(x, y);
+  activeColorValue.value = getColorAtPosition(x,y);
 }
 
 function canvasMouseMove(e) {
@@ -77,17 +82,22 @@ function canvasMouseUp(e) {
 }
 
 function getColorAtPosition(x, y) {
-  // Pass the options object with the willReadFrequently flag set to true
   const ctx = canvasElement.value.getContext('2d', { willReadFrequently: true });
+  const width = canvasElement.value.width;
+  const height = canvasElement.value.height;
+
+  // Clamp the coordinates to ensure they are within the canvas bounds
+  x = clamp(x, 0, width - 1);
+  y = clamp(y, 0, height - 1);
+
   const pixel = ctx.getImageData(x, y, 1, 1).data;
-  return `rgba(${pixel[0]},${pixel[1]},${pixel[2]},${pixel[3]})`;
+  return `rgba(${pixel[0]},${pixel[1]},${pixel[2]},${pixel[3] / 255})`;
 }
 
-function updateSelectedColor(e) {
-  selectedColor.value = getColorAtPosition(e.offsetX, e.offsetY);
-}
 
 function canvasMouseDown(e) {
+  e.preventDefault();
+  e.stopPropagation();
   document.addEventListener("mousemove", canvasMouseMove);
   document.addEventListener("mouseup", canvasMouseUp);
   updateSelectedColor(e);
@@ -99,6 +109,11 @@ onMounted(() => {
   canvasElement.value.height = canvasContainerDimensions.height;
   updateCanvasGradient();
   drawIndicator(0, 0);
+});
+
+watch(fullChannelColor, () => {
+  updateCanvasGradient();
+  drawIndicator(inducatorPosition.x,inducatorPosition.y)
 });
 </script>
 
