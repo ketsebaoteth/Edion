@@ -1,6 +1,7 @@
 <script setup>
 import Button from '../ui/button/Button.vue';
 import Input from '../ui/input/Input.vue';
+import layersSection from './layers/layersSection.vue';
 import {
   Select,
   SelectContent,
@@ -41,16 +42,16 @@ function expandlayers(){
             <h2 class="active">Color</h2>
             <h2>Editing</h2>
         </div>
-        <color_property_section />
+        <color_property_section :class="{'overflow-x-scroll':layersExpanded}"/>
         <div class="layers">
             <div class="layer_head px-4 pr-0" @click="expandlayers">
                 <h2>Layers</h2>
                 <button variant="outline" size="icon" class="ml-auto h-8 w-8 rounded-none border-y-0">
-                    <img src="../icons/general/arrow_up.svg" alt="">
+                    <img src="../icons/general/arrow_up.svg" alt="" :class="{'rotate-180':layersExpanded}">
                 </button>
             </div>
-            <div class="layerscont w-full" :class="{'h-60':layersExpanded}">
-
+            <div class="layerscont w-full max-h-0" :class="{'h-80':layersExpanded,'max-h-80':layersExpanded}">
+                <layersSection />
             </div>
         </div>
     </div>
