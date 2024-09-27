@@ -1,7 +1,4 @@
 <script setup>
-import gradient_area from '../colorpicker/gradient_area.vue';
-import fullcolorchannel from '../colorpicker/fullcolorchannel.vue';
-import alphachannel from '../colorpicker/alphachannel.vue';
 import Button from '../ui/button/Button.vue';
 import Input from '../ui/input/Input.vue';
 import {
@@ -44,12 +41,7 @@ function expandlayers(){
             <h2 class="active">Color</h2>
             <h2>Editing</h2>
         </div>
-        <color_property_section>
-            <gradient_area />
-            <fullcolorchannel />
-            <alphachannel />
-        </color_property_section>
-
+        <color_property_section />
         <div class="layers">
             <div class="layer_head px-4 pr-0" @click="expandlayers">
                 <h2>Layers</h2>
@@ -65,8 +57,8 @@ function expandlayers(){
 </template>
 
 <style lang="scss" scoped>
-    @import "../styles/colors";
-    @import "../styles/variables";
+@import "../styles/colors";
+@import "../styles/variables";
 
 .properties{
     background-color: $background-base;
