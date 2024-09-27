@@ -116,9 +116,8 @@ import Button from '../ui/button/Button.vue';
         @apply w-full h-64 border cursor-pointer border-border gap-3 rounded-lg flex flex-col place-items-center justify-center;
         border-style: dashed;
         transition: $animation_speed ease-in-out;
-        &:hover{
-          background: $background-base;
-        }
+        background: $background-base;
+        
         h1{
           font-size: $fsize-xxlarge;
           color: $text-darker;

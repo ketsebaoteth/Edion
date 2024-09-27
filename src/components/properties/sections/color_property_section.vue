@@ -7,6 +7,7 @@ import hslpreview from './hslpreview.vue';
 import rgbpreview from './rgbpreview.vue';
 import hsbpreview from './hsbpreview.vue';
 import cmykpreview from './cmykpreview.vue';
+import recentColors from './recentColors.vue';
 import {
   Select,
   SelectContent,
@@ -60,5 +61,6 @@ watch(selectedColor,()=>{
         <hsbpreview v-if="selectedPreviewFormat == 'hsb'"/>
         <cmykpreview v-if="selectedPreviewFormat == 'cmyk'"/>
     </div>
+    <recentColors />
   </div>
 </template>
