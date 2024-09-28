@@ -841,6 +841,300 @@ export const menuBarStructure = [
     {
         label: "Filter",
         labelCallback: exampleLabelCallback,
+        submenus:[
+            {
+                label: "Last Filter",
+                bottomSeparator: true,
+                shortcut: "CTRL+ALT+F"
+            },
+            {
+                label: "Filter Gallary"
+            },
+            {
+                label: "Lens Correction"
+            },
+            {
+                label: "Camera Raw"
+            },
+            {
+                label: "Liquify"
+            },
+            {
+                label: "Vanishing Point",
+                bottomSeparator: true
+            },
+            {
+                label: "3d",
+                subsubmenus: [
+                    {
+                        label: "Normal Map"
+                    },
+                    {
+                        label: "Texture Dilation"
+                    }
+                ]
+            },
+            {
+                label: "Blur",
+                subsubmenus: [
+                    {
+                        label: "Average Blur"
+                    },
+                    {
+                        label: "Blur"
+                    },
+                    {
+                        label: "Box Blur"
+                    },
+                    {
+                        label: "Gausian Blur"
+                    },
+                    {
+                        label: "Lens Blur"
+                    },
+                    {
+                        label: "Motion Blur"
+                    },
+                    {
+                        label: "Radial Blur"
+                    },
+                    {
+                        label: "Shape Blur"
+                    },
+                    {
+                        label: "Smart Blur"
+                    },
+                    {
+                        label: "Surface Blur"
+                    }
+                ]
+            },
+            {
+                label: "Blur Gallary",
+                subsubmenus: [
+                    {
+                        label: "Field Blur"
+                    },
+                    {
+                        label: "Iris Blur"
+                    },
+                    {
+                        label: "Tilt Shift"
+                    },
+                    {
+                        label: "Path Blur"
+                    },
+                    {
+                        label: "Spin Blur"
+                    }
+                ]
+            },
+            {
+                label: "Distort",
+                subsubmenus: [
+                    {
+                        label: "Displace"
+                    },
+                    {
+                        label: "Polar Coordinates"
+                    },
+                    {
+                        label: "Ripple"
+                    },
+                    {
+                        label: "Shear"
+                    },
+                    {
+                        label: "Spherize"
+                    },
+                    {
+                        label: "Twirl"
+                    },
+                    {
+                        label: "Wave"
+                    },
+                    {
+                        label: "ZigZag"
+                    }
+                ]
+            },
+            {
+                label: "Noise",
+                subsubmenus: [
+                    {
+                        label: "Add Noise"
+                    },
+                    {
+                        label: "Despeckle"
+                    },
+                    {
+                        label: "Dust & Scratches"
+                    },
+                    {
+                        label: "Reduce Noise"
+                    },
+                    {
+                        label: "Median"
+                    },
+                    {
+                        label: "NTSC Colors"
+                    },
+                    {
+                        label: "Match Grain"
+                    }
+                ]
+            },
+            {
+                label: "Pixelate",
+                subsubmenus: [
+                    {
+                        label: "Color Halftone"
+                    },
+                    {
+                        label: "Crystallize"
+                    },
+                    {
+                        label: "Facet"
+                    },
+                    {
+                        label: "Fragment"
+                    },
+                    {
+                        label: "Mezzotint"
+                    },
+                    {
+                        label: "Mosaic"
+                    },
+                    {
+                        label: "Pointillize"
+                    }
+                ]
+            },
+            {
+                label: "Render",
+                subsubmenus: [
+                    {
+                        label: "Clouds"
+                    },
+                    {
+                        label: "Difference Clouds"
+                    },
+                    {
+                        label: "Fibers"
+                    },
+                    {
+                        label: "Lens Flare"
+                    },
+                    {
+                        label: "Lighting Effects"
+                    },
+                    {
+                        label: "Tree"
+                    },
+                    {
+                        label: "Picture Frame"
+                    }
+                ]
+            },
+            {
+                label: "Sharpen",
+                subsubmenus: [
+                    {
+                        label: "Sharpen"
+                    },
+                    {
+                        label: "Sharpen Edges"
+                    },
+                    {
+                        label: "Sharpen More"
+                    },
+                    {
+                        label: "Unsharp Mask"
+                    }
+                ]
+            },
+            {
+                label: "Stylize",
+                subsubmenus: [
+                    {
+                        label: "Diffuse"
+                    },
+                    {
+                        label: "Emboss"
+                    },
+                    {
+                        label: "Extrude"
+                    },
+                    {
+                        label: "Find Edges"
+                    },
+                    {
+                        label: "Glowing Edges"
+                    },
+                    {
+                        label: "Solarize"
+                    },
+                    {
+                        label: "Trace Contour"
+                    }
+                ]
+            },
+            {
+                label: "Others",
+                subsubmenus: [
+                    {
+                        label: "Maximum"
+                    },
+                    {
+                        label: "Minimum"
+                    },
+                    {
+                        label: "Offset"
+                    },
+                    {
+                        label: "Pinch"
+                    },
+                    {
+                        label: "Rippled"
+                    },
+                    {
+                        label: "Spherize"
+                    },
+                    {
+                        label: "Twirl"
+                    },
+                    {
+                        label: "Wave"
+                    },
+                    {
+                        label: "ZigZag"
+                    }
+                ]
+            },
+            {
+                label: "Fourier",
+                subsubmenus: [
+                    {
+                        label: "FFT"
+                    },
+                    {
+                        label: "IFFT"
+                    },
+                    {
+                        label: "Bandpass"
+                    },
+                    {
+                        label: "Bandreject"
+                    },
+                    {
+                        label: "Highpass"
+                    },
+                    {
+                        label: "Lowpass"
+                    }
+                ]
+            }
+        ]
     },
     {
         label: "View",
