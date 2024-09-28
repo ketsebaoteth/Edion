@@ -767,24 +767,75 @@ export const menuBarStructure = [
         submenus: [
             {
                 label: "Select All",
-                labelCallback: exampleItemCallback,
                 shortcut: "CTRL+A"
             },
             {
-                label: "Deselect",
-                labelCallback: exampleItemCallback,
-                shortcut: "ESC"
-            },
-            {
-                label: "Reselect",
-                labelCallback: exampleItemCallback,
-                shortcut: "CTRL+SHIFT+A"
+                label: "Deselect All",
+                shortcut: "CTRL+D"
             },
             {
                 label: "Invert Selection",
-                labelCallback: exampleItemCallback,
                 shortcut: "CTRL+I"
             },
+            {
+                label: "Reselect Selection",
+                bottomSeparator: true
+            },
+            {
+                label: "Remove Background",
+            },
+            {
+                label: "Color Range"
+            },
+            {
+                label: "Magic Cut"
+            },
+            {
+                label: "Subject Select",
+                bottomSeparator: true
+            },
+            {
+                label: "Refine Edges",
+            },
+            {
+                label: "Modify",
+                subsubmenus: [
+                    {
+                        label: "Border"
+                    },
+                    {
+                        label: "Smooth"
+                    },
+                    {
+                        label: "Expand"
+                    },
+                    {
+                        label: "Contract"
+                    },
+                    {
+                        label: "Feather"
+                    },
+                    {
+                        label: "Grow"
+                    },
+                ],
+                bottomSeparator: true
+            },
+            {
+                label: "Transform Selection",
+                bottomSeparator: true,
+            },
+            {
+                label: "Quick Mask Selection",
+                shortcut: "Q",
+                bottomSeparator: true,
+            },
+            {
+                label: "Load Selection",
+            },
+            {
+                label: "Save Selection"
+            }
         ]
     },
     {
