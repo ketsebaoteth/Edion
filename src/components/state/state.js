@@ -5,4 +5,5 @@ export let state = ref({
     showDimensionSelector: false,
     showGettingStarted: true,
     windowIsFullscreen: false,
+    debugMode: true,
 })

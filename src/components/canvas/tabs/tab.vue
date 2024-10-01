@@ -1,9 +1,19 @@
 <script setup>
 import { tabList } from './tabsjs/tab_list';
+import { tabsContainer } from '../cglobals';
+import { ref,watch } from 'vue';
+
+const tabslist = ref(null);
+
+watch(tabslist, (newVal) => {
+  if (newVal) {
+    tabsContainer.value = newVal;
+  }
+});
 </script>
 
 <template>
-    <div class="tab_list w-full h-8 min-h-8">
+    <div ref="tabslist" class="tab_list w-full h-8 min-h-8">
         <div class="tab active" v-for="(tabs, tabindex) in tabList" :key="tabindex">
             <h2>{{ tabs.FileName}}</h2>
             <button>

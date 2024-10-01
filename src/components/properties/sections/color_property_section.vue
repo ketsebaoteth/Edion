@@ -62,5 +62,24 @@ watch(selectedColor,()=>{
         <cmykpreview v-if="selectedPreviewFormat == 'cmyk'"/>
     </div>
     <recentColors />
+    <h2>Shades</h2>
+    <div class="shades w-full h-10 border-border border rounded p-1 flex gap-[4px]">
+      <div class=" w-1/5 h-full bg-white rounded-tl rounded-bl"></div>
+      <div class=" w-1/5 h-full bg-white"></div>
+      <div class=" w-1/5 h-full bg-white"></div>
+      <div class=" w-1/5 h-full bg-white"></div>
+      <div class=" w-1/5 h-full bg-white rounded-tr rounded-br"></div>
+    </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.shades{
+  div{
+    cursor: pointer;
+  }
+}
+</style>
