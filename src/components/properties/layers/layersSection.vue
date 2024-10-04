@@ -16,15 +16,12 @@ import {
 } from '@/components/ui/tooltip'
 import Input from '@/components/ui/input/Input.vue';
 import Button from '@/components/ui/button/Button.vue';
+import { state } from '@/components/state/state';
 </script>
 
 <template>
-    <div class="w-full h-full">
-        <div class="nav flex w-full h-7 gap-2 px-3">
-            <h2 class="active">Layers</h2>
-            <h2>Channels</h2>
-            <h2>Paths</h2>
-        </div>
+    <div class="w-full h-full" v-if="state.showLayersPanel">
+        
         <div class="blending w-full h-9 flex gap-2 place-items-center px-2 border-b border-border">
             <Select>
                 <SelectTrigger class="blendingselect w-32 h-6 rounded border-0">
@@ -192,16 +189,5 @@ import Button from '@/components/ui/button/Button.vue';
         background-color: $background-base-hover;
     }
 }
-.nav{
-    background-color: $background-base;
-    border-bottom: 1px solid $border-base;
-    h2{
-        font-size: $fsize-base;
-        color: $text-muted;
-        cursor: pointer;
-    }
-    .active{
-        color: $text-base;
-    }
-}
+
 </style>

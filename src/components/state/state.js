@@ -5,5 +5,7 @@ export let state = ref({
     showDimensionSelector: false,
     showGettingStarted: true,
     windowIsFullscreen: false,
+    showLayersPanel: true,
+    showChannelsPanel: true,
     debugMode: true,
 })

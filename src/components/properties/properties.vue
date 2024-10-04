@@ -21,6 +21,7 @@ import {
 import ScrollArea from '../ui/scroll-area/ScrollArea.vue';
 import { ref } from 'vue';
 import color_property_section from './sections/color_property_section.vue';
+import { state } from '../state/state';
 
 const SelectedColor = ref("rgb(255, 255, 255)");
 const layersExpanded = ref(false);
@@ -30,6 +31,15 @@ function handleSelectedColorChange(color) {
 }
 function expandlayers(){
     layersExpanded.value = !layersExpanded.value;
+}
+
+function enableLayersPanel(){
+    state.value.showLayersPanel = true;
+    state.value.showChannelsPanel = false;
+}
+function enableChannelsPanel(){
+    state.value.showLayersPanel = false;
+    state.value.showChannelsPanel = true;
 }
 </script>
 
@@ -51,6 +61,11 @@ function expandlayers(){
                 </button>
             </div>
             <div class="layerscont w-full max-h-0" :class="{'h-80':layersExpanded,'max-h-80':layersExpanded}">
+                <div class="nav flex w-full h-7 gap-2 px-3">
+                    <h2 class="active" @click="enableLayersPanel">Layers</h2>
+                    <h2 @click="enableChannelsPanel">Channels</h2>
+                    <h2>Paths</h2>
+                </div>
                 <layersSection />
             </div>
         </div>
@@ -65,6 +80,18 @@ function expandlayers(){
     background-color: $background-base;
     border-left: 1px solid $border-base;
     @apply flex flex-col;
+    .nav{
+        background-color: $background-base;
+        border-bottom: 1px solid $border-base;
+        h2{
+            font-size: $fsize-base;
+            color: $text-muted;
+            cursor: pointer;
+        }
+        .active{
+            color: $text-base;
+        }
+    }
     .header{
         h2{
             font-size: $fsize-large;
