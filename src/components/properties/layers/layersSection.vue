@@ -137,8 +137,6 @@ import { state } from '@/components/state/state';
             <img src="../../icons/layers/layerFolder.svg" alt="">
             <img src="../../icons/layers/addLayer.svg" alt="">
             <img src="../../icons/layers/delLayer.svg" alt="">
-            
-
         </div>
     </div>
 

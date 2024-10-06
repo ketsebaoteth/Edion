@@ -21,6 +21,7 @@ import {
 import ScrollArea from '../ui/scroll-area/ScrollArea.vue';
 import { ref } from 'vue';
 import color_property_section from './sections/color_property_section.vue';
+import channel from './channels/channel.vue';
 import { state } from '../state/state';
 
 const SelectedColor = ref("rgb(255, 255, 255)");
@@ -67,6 +68,7 @@ function enableChannelsPanel(){
                     <h2>Paths</h2>
                 </div>
                 <layersSection />
+                <channel />
             </div>
         </div>
     </div>
