@@ -42,6 +42,10 @@ function enableChannelsPanel(){
     state.value.showLayersPanel = false;
     state.value.showChannelsPanel = true;
 }
+function enableHistory(){
+    state.value.showHistoryPanel = true;
+    state.value.showColorEditing = false;
+}
 </script>
 
 <template>
@@ -49,9 +53,10 @@ function enableChannelsPanel(){
         <div class="header h-8 flex place-items-center px-4">
             <h2 >Properties</h2>
         </div>
-        <div class="tabs w-full h-8 border-b border-border flex px-4 gap-3 place-items-center">
-            <h2 class="active">Color</h2>
-            <h2>Editing</h2>
+        <div class="tabs w-full h-10 border-b border-border flex px-4 gap-3 place-items-center">
+            <h2 :class="{'active':state.showColorEditing}" @click="state.showColorEditing=true">Color</h2>
+            <h2 >Editing</h2>
+            <h2 @click="enableHistory">History</h2>
         </div>
         <color_property_section :class="{'overflow-x-scroll':layersExpanded}"/>
         <div class="layers">
@@ -63,8 +68,8 @@ function enableChannelsPanel(){
             </div>
             <div class="layerscont w-full max-h-0" :class="{'h-80':layersExpanded,'max-h-80':layersExpanded}">
                 <div class="nav flex w-full h-7 gap-2 px-3">
-                    <h2 class="active" @click="enableLayersPanel">Layers</h2>
-                    <h2 @click="enableChannelsPanel">Channels</h2>
+                    <h2 :class="{'active':state.showLayersPanel}" @click="enableLayersPanel">Layers</h2>
+                    <h2 :class="{'active':state.showChannelsPanel}" @click="enableChannelsPanel">Channels</h2>
                     <h2>Paths</h2>
                 </div>
                 <layersSection />

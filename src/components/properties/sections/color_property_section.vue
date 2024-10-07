@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/select"
 import {selectedColor} from "../../colorpicker/globals.js"
 import { watch,ref } from 'vue';
+import { state } from '@/components/state/state';
 
 const colorPreview = ref(null);
 const selectedPreviewFormat = ref("hex");
@@ -32,7 +33,7 @@ watch(selectedColor,()=>{
 </script>
 
 <template>
-  <div class="w-full h-full p-2 flex flex-col gap-2">
+  <div class="w-full h-full p-2 flex flex-col gap-2" v-if="state.showColorEditing">
     <gradient_area />
     <fullcolorchannel />
     <alphachannel />
