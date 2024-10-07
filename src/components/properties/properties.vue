@@ -23,6 +23,7 @@ import { ref } from 'vue';
 import color_property_section from './sections/color_property_section.vue';
 import channel from './channels/channel.vue';
 import { state } from '../state/state';
+import historySection from './historySection/historySection.vue';
 
 const SelectedColor = ref("rgb(255, 255, 255)");
 const layersExpanded = ref(false);
@@ -59,6 +60,7 @@ function enableHistory(){
             <h2 @click="enableHistory">History</h2>
         </div>
         <color_property_section :class="{'overflow-x-scroll':layersExpanded}"/>
+        <historySection />
         <div class="layers">
             <div class="layer_head px-4 pr-0" @click="expandlayers">
                 <h2>Layers</h2>
