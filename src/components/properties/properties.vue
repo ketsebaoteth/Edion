@@ -68,6 +68,7 @@ function enableHistory(){
                     <img src="../icons/general/arrow_up.svg" alt="" :class="{'rotate-180':layersExpanded}">
                 </button>
             </div>
+            
             <div class="layerscont w-full max-h-0" :class="{'h-80':layersExpanded,'max-h-80':layersExpanded}">
                 <div class="nav flex w-full h-7 gap-2 px-3">
                     <h2 :class="{'active':state.showLayersPanel}" @click="enableLayersPanel">Layers</h2>
