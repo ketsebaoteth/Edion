@@ -159,7 +159,8 @@ import { state } from '@/components/state/state';
     @apply p-2;
     .layer{
         background: $background-base-hover;
-        @apply w-full h-12 flex place-items-center gap-1 px-2 rounded;
+        height: 50px;
+        @apply w-full flex place-items-center gap-1 px-2 rounded;
         img{
             @apply h-[15px] cursor-pointer;
         }

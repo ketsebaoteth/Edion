@@ -19,7 +19,7 @@ import {
 } from '@/components/ui/tooltip'
 
 import ScrollArea from '../ui/scroll-area/ScrollArea.vue';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import color_property_section from './sections/color_property_section.vue';
 import channel from './channels/channel.vue';
 import { state } from '../state/state';
@@ -47,6 +47,14 @@ function enableHistory(){
     state.value.showHistoryPanel = true;
     state.value.showColorEditing = false;
 }
+function enableColorEditing(){
+    state.value.showHistoryPanel = false;
+    state.value.showColorEditing = true;
+}
+
+const layersHeight = computed(() => {
+    return layersExpanded.value ? '300px' : '0px';
+});
 </script>
 
 <template>
@@ -55,7 +63,7 @@ function enableHistory(){
             <h2 >Properties</h2>
         </div>
         <div class="tabs w-full h-10 border-b border-border flex px-4 gap-3 place-items-center">
-            <h2 :class="{'active':state.showColorEditing}" @click="state.showColorEditing=true">Color</h2>
+            <h2 :class="{'active':state.showColorEditing}" @click="enableColorEditing">Color</h2>
             <h2 >Editing</h2>
             <h2 @click="enableHistory">History</h2>
         </div>
@@ -69,7 +77,7 @@ function enableHistory(){
                 </button>
             </div>
             
-            <div class="layerscont w-full max-h-0" :class="{'h-80':layersExpanded,'max-h-80':layersExpanded}">
+            <div ref="layerscont" class="layerscont w-full" :style="{ height: layersHeight }">
                 <div class="nav flex w-full h-7 gap-2 px-3">
                     <h2 :class="{'active':state.showLayersPanel}" @click="enableLayersPanel">Layers</h2>
                     <h2 :class="{'active':state.showChannelsPanel}" @click="enableChannelsPanel">Channels</h2>
@@ -132,6 +140,10 @@ function enableHistory(){
     }
     .layers{
         @apply w-full mt-auto;
+        .layerscont{
+            @apply overflow-hidden;
+            transition: 0.2s ease-in-out;
+        }
         .layer_head{
             @apply h-8 w-full border-t border-border flex place-items-center cursor-pointer;
             transform: $animation_speed ease-in-out;
@@ -142,6 +154,9 @@ function enableHistory(){
                 font-size: $fsize-large;
             }
         }
+    }
+    .rotate-180 {
+        transform: rotate(180deg);
     }
 }
 </style>

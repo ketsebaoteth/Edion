@@ -9,9 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tabler/icons-vue": "^3.19.0",
     "@vueuse/core": "^11.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "gsap": "^3.12.5",
     "lucide-vue-next": "^0.445.0",
     "radix-vue": "^1.9.6",
     "rulerjs": "^0.0.3",
