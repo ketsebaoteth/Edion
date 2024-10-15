@@ -1,5 +1,6 @@
 
-![Group 14](https://github.com/user-attachments/assets/192f0eec-1a66-415f-9b12-042e7b07c400)
+![Group 14](https://github.com/user-attachments/assets/4a00941b-3000-44ff-9ba5-eec74658aecc)
+
 
 
 # Edion Editor
