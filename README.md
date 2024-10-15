@@ -1,3 +1,6 @@
+
+![Group 2 (2)](https://github.com/user-attachments/assets/c03bc0da-c5b5-4af8-825a-10cd8920a109)
+
 # Edion Editor
 **Imagine without a subscription**
 
