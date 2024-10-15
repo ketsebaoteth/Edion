@@ -3,17 +3,20 @@
 
 **Edion Editor** is a web based editor that aims to revolutionize image editing by becoming more than just a photoshop clone and to provide better tools built with newer technologies and improved algorithms from the ground up.
 
-> [!IMPROTANT]
+> [!IMPORTANT]
 > Please note that Edion Editor is still in its early stages of development. As such, its current features may seem limited. However, every project begins with a blank slate, and Edion is > no exception.
 
 ## Features
 - **Web-Based**: Access Edion Editor from any device with a web browser.
-- **Advanced Editing Tools**: Comparable to industry standards like Photoshop and Photopea.
+- **Advanced Editing Tools**: Aims to improve on the editing tools of the industry standars such as Photoshop.
 - **User-Friendly Interface**: Designed to improve usability and streamline your workflow.
+- **Well taught out Plugin System**: Well taught out and fully Integrated Pluggin system to create a community full of pluggins.
+- **Improved On Outdated Functionalites**: A New Way to undo actions in a non distructive way Using a Smart Undo Algorithm
+
+# Developers
 
 ## Getting Started
-
-To get Edion Editor up and running, follow these steps:
+To get Edion Editor up and running From Source, follow these steps:
 
 1. Clone the repository:
     ```bash
@@ -33,12 +36,12 @@ To get Edion Editor up and running, follow these steps:
 
 If you encounter any missing libraries, simply run:
     ```bash
-    npm install
+    npm install THE_MISSING_LIBRARY's_NAME
     ```
 
 ## Contributing
 
-We welcome contributions! Please read our contributing guidelines for more details.
+I welcome contributions! Please read our contributing guidelines for more details.
 
 ## License
 
