@@ -1,9 +1,10 @@
 # Edion Editor
-
-**Edion Editor** aims to be a superior alternative to Photoshop, offering a web-based solution for all your photo editing needs. Built with modern technologies like **Vue.js**, **WebGL**, and **WebAssembly**, Edion Editor provides a seamless and powerful editing experience.
-
-## Slogan
 **Imagine without a subscription**
+
+**Edion Editor** is a web based editor that aims to revolutionize image editing by becoming more than just a photoshop clone and to provide better tools built with newer technologies and improved algorithms from the ground up.
+
+> [!IMPROTANT]
+> Please note that Edion Editor is still in its early stages of development. As such, its current features may seem limited. However, every project begins with a blank slate, and Edion is > no exception.
 
 ## Features
 - **Web-Based**: Access Edion Editor from any device with a web browser.
