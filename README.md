@@ -53,6 +53,7 @@ This project is licensed under the GPL 2.0 License - see the LICENSE file for de
 
 ---
 
-**Note:** Edion Editor is currently in its early development stages and is a work in progress. We appreciate your patience and contributions as we continue to improve the project.
+> [!IMPORTANT]
+> Edion Editor is currently in its early development stages and is a work in progress. We appreciate your patience and contributions as we continue to improve the project.
 
 Thank you for choosing Edion Editor. We hope it enhances your photo editing experience!
