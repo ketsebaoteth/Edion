@@ -2,7 +2,7 @@
 ![Group 15 (1)](https://github.com/user-attachments/assets/19ce1382-1542-47ec-baef-867a5152614a)
 
 
-# Edion Editor
+# Edion Photo Editor
 **Imagine without a subscription**
 
 **Edion Editor** is a web based editor that aims to revolutionize image editing by becoming more than just a photoshop clone and to provide better tools built with newer technologies and improved algorithms from the ground up.
@@ -17,9 +17,10 @@
 - **Well taught out Plugin System**: Well taught out and fully Integrated Pluggin system to create a community full of pluggins.
 - **Improved On Outdated Functionalites**: A New Way to undo actions in a non distructive way Using a Smart Undo Algorithm
 
-# Developers
+# For Developers
 
-## Getting Started
+## Getting Started With Code Base
+
 To get Edion Editor up and running From Source, follow these steps:
 
 1. Clone the repository:
