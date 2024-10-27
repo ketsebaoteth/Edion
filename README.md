@@ -16,6 +16,7 @@
 - **User-Friendly Interface**: Designed to improve usability and streamline your workflow.
 - **Well taught out Plugin System**: Well taught out and fully Integrated Pluggin system to create a community full of pluggins.
 - **Improved On Outdated Functionalites**: A New Way to undo actions in a non distructive way Using a Smart Undo Algorithm
+- **Simple To Use And Web Based**
 
 # For Developers
 
